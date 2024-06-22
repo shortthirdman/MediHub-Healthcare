@@ -1,0 +1,176 @@
+spring:
+  application:
+    name: medihub-service
+  devtools:
+    restart:
+      enabled: true
+  aop:
+    auto: true
+  codec:
+    log-request-details: true
+    max-in-memory-size: 12MB
+  mvc:
+    publish-request-handled-events: true
+    converters:
+      preferred-json-mapper: jackson
+    format:
+      date: "yyyy-MM-dd"
+      date-time: "yyyy-MM-dd HH:mm:ss"
+  lifecycle:
+    timeout-per-shutdown-phase: 10s
+#  config:
+#    import: ""
+  info:
+    build:
+      encoding: UTF-8
+    git:
+      encoding: UTF-8
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: admin#123
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/medihub
+  jpa:
+    database: postgres
+    database-platform:  postgres
+    defer-datasource-initialization: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: default
+        enabled: true
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: false
+    keep-alive: true
+    log-startup-info: true
+    web-application-type: SERVLET
+    mandatory-file-encoding: UTF-8
+  sql:
+    init:
+      continue-on-error: false
+      mode: never
+      username: ${spring.datasource.username}
+      password: ${spring.datasource.password}
+      schema-locations: classpath:/create-schema.sql
+  gson:
+    date-format: "yyyy-MM-dd"
+    lenient: true
+    pretty-printing: true
+  jackson:
+    date-format: ${spring.mvc.format.date}
+    default-leniency:
+  profiles:
+    include: 'default'
+    active: ${env.SPRING_PROFILES_ACTIVE:-default}
+  transaction:
+    default-timeout: 30s
+    rollback-on-commit-failure: true
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  include-application-name: true
+  level:
+    root: INFO
+  pattern:
+    console:
+    file:
+
+  charset:
+    file: UTF-8
+    console: UTF-8
+
+
+server:
+  address: localhost
+  port: 8080
+  servlet:
+    context-path: /medihub/api/v1
+    encoding:
+      charset: UTF-8
+  http2:
+    enabled: true
+  compression:
+    enabled: true
+
+
+management:
+  health:
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+    ping:
+      enabled: true
+  info:
+    build:
+      enabled: true
+    defaults:
+      enabled: true
+    env:
+      enabled: true
+    git:
+      enabled: true
+    os:
+      enabled: true
+    java:
+      enabled: true
+    process:
+      enabled: true
+  metrics:
+    data:
+      repository:
+        autotime:
+          enabled: true
+          percentiles-histogram: true
+  endpoint:
+    auditevents:
+      enabled: true
+    beans:
+      enabled: true
+    configprops:
+      enabled: true
+      show-values: always
+    env:
+      enabled: true
+      show-values: always
+    httpexchanges:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+      logging:
+        slow-indicator-threshold: 10s
+    info:
+      enabled: true
+    logfile:
+      enabled: true
+    metrics:
+      enabled: true
+    startup:
+      enabled: true
+    shutdown:
+      enabled: true
+  endpoints:
+    enabled-by-default: true
+    web:
+      discovery:
+        enabled: true
+      exposure:
+        include: "*"
+  tracing:
+    enabled: true
