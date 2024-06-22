@@ -29,10 +29,16 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn -B -ntp clean package --file backend/pom.xml
+      run: |
+        cd backend
+        mvn -B -ntp clean package --file pom.xml
       
     - name: Build the Docker image
-      run: docker build . --file backend/Dockerfile --tag shortthirdman/MediHub:$(date +%s)
+      run: |
+        cd backend
+        docker build --platform linux/amd64 --squash --progress=auto --compress --rm -t shortthirdman/MediHub:$(date +%s) .
+        docker images
+        docker rmi $(docker images -q)
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
