@@ -1,5 +1,4 @@
-# MediHub-Healthcare
-MediHub Healthcare
+# MediHub Healthcare
 
 
 ![GitHub branch status](https://img.shields.io/github/checks-status/shortthirdman/MediHub-Healthcare/main)
@@ -12,3 +11,8 @@ MediHub Healthcare
 ![GitHub License](https://img.shields.io/github/license/shortthirdman/MediHub-Healthcare)
 ![Docker Image Version](https://img.shields.io/docker/v/shortthirdman/MediHub-Healthcare)
 ![Maven Central Version](https://img.shields.io/maven-central/v/org.springframework.boot/spring-boot-starter-parent?versionPrefix=3.2&label=Spring%20Boot)
+
+
+- [OpenHospital Core](https://github.com/informatici/openhospital-core)
+- [OpenHospital GUI](https://github.com/informatici/openhospital-gui)
+- [OpenHospital API](https://github.com/informatici/openhospital-api)
