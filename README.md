@@ -12,6 +12,8 @@
 ![Docker Image Version](https://img.shields.io/docker/v/shortthirdman/MediHub-Healthcare)
 ![Maven Central Version](https://img.shields.io/maven-central/v/org.springframework.boot/spring-boot-starter-parent?versionPrefix=3.2&label=Spring%20Boot)
 
+[![Java-Maven-Docker CI](https://github.com/shortthirdman/MediHub-Healthcare/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/shortthirdman/MediHub-Healthcare/actions/workflows/ci.yml)
+
 
 - [OpenHospital Core](https://github.com/informatici/openhospital-core)
 - [OpenHospital GUI](https://github.com/informatici/openhospital-gui)
