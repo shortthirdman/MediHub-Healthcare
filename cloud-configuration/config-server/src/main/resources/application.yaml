@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: medihub-configserver
+  profiles:
+    active: native
+
+server:
+  port: 8888
+  servlet:
+    context-path: /configserver
